@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Buy groceries",
+      "description": "my name is amol suresh mahor",
+      "timestamp": " 12 Jully 2022"
+    },
+    {
+      "id": 2,
+      "title": "Read a book",
+      "description": "my name is amol suresh mahor",
+      "timestamp": " 12 Jully 2022"
+    },
+    {
+      "id": 3,
+      "title": "Write a blog post",
+      "description": "my name is amol suresh mahor",
+      "timestamp": " 12 Jully 2022"
+    },
+    {
+      "id": 1722273423039,
+      "title": "dbnmbdjds",
+      "description": "<p>dbhmbjdf</p>",
+      "date": "2024-07-29T17:16:54.781Z"
+    }
+  ]
+}
