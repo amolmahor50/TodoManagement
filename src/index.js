@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AddItems from './Component/AddItems';
 import { TodoProvider } from './Store/TodoContext';
+import Setting from './Component/Setting';
+import CreateFolder from './Component/CreateFolder';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
   {
     path: '/addItems',
     element: <AddItems />
+  },
+  {
+    path: 'folder',
+    element: <CreateFolder/>
+  },
+  {
+    path: '/setting',
+    element: <Setting/>
   }
 ])
 

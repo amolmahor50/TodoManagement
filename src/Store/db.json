@@ -1,28 +1,84 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Buy groceries",
-      "description": "my name is amol suresh mahor",
-      "timestamp": " 12 Jully 2022"
+      "id": "1722778512333",
+      "title": "fnbhbnfbf",
+      "description": "s bdhdjb gfbf",
+      "timestamp": "8/4/2024, 7:04:59 PM"
     },
     {
-      "id": 2,
-      "title": "Read a book",
-      "description": "my name is amol suresh mahor",
-      "timestamp": " 12 Jully 2022"
+      "id": 1722878270160,
+      "title": "hello f",
+      "description": "bdhd",
+      "timestamp": "8/5/2024, 10:47:41 PM"
     },
     {
-      "id": 3,
-      "title": "Write a blog post",
-      "description": "my name is amol suresh mahor",
-      "timestamp": " 12 Jully 2022"
+      "id": 1722878694129,
+      "title": "amoln",
+      "description": "hbdbd",
+      "timestamp": "8/5/2024, 10:54:48 PM"
+    }
+  ],
+  "deletedItems": [
+    {
+      "id": 1722878270160,
+      "title": "hello f",
+      "description": "bdhd",
+      "timestamp": "8/5/2024, 10:47:41 PM"
     },
     {
-      "id": 1722273423039,
-      "title": "dbnmbdjds",
-      "description": "<p>dbhmbjdf</p>",
-      "date": "2024-07-29T17:16:54.781Z"
+      "0": {
+        "id": 1722878270160,
+        "title": "hello f",
+        "description": "bdhd",
+        "timestamp": "8/5/2024, 10:47:41 PM"
+      },
+      "id": "0a7b"
+    },
+    {
+      "0": {
+        "id": "1722111512333",
+        "title": "fnbhbnfbf",
+        "description": "s bdhdjb gfbf",
+        "timestamp": "8/4/2024, 7:04:59 PM"
+      },
+      "id": "ab88"
+    },
+    {
+      "0": {
+        "id": 1722878270160,
+        "title": "hello f",
+        "description": "bdhd",
+        "timestamp": "8/5/2024, 10:47:41 PM"
+      },
+      "id": "b43a"
+    },
+    {
+      "0": {
+        "id": 1722878694129,
+        "title": "amoln",
+        "description": "hbdbd",
+        "timestamp": "8/5/2024, 10:54:48 PM"
+      },
+      "id": "cf37"
+    },
+    {
+      "0": {
+        "id": 1722878270160,
+        "title": "hello f",
+        "description": "bdhd",
+        "timestamp": "8/5/2024, 10:47:41 PM"
+      },
+      "id": "c3d5"
+    },
+    {
+      "0": {
+        "id": 1722878270160,
+        "title": "hello f",
+        "description": "bdhd",
+        "timestamp": "8/5/2024, 10:47:41 PM"
+      },
+      "id": "4932"
     }
   ]
 }

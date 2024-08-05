@@ -5,7 +5,7 @@ function SearchBar() {
     <div className='searchBar-wrapper'>
         <p>Notes</p>
         <div className="search-group d-flex">
-            <CiSearch/>
+            <CiSearch className="icon"/>
             <input type="text" name="" id="" placeholder="Search notes" />
         </div>
     </div>

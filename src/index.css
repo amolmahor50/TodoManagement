@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
 
@@ -24,8 +23,10 @@
   --mediu-fs: 16px;
   --xl-fs: 18px;
   --big-fs: 24px;
+  --xxl-fs: 26px;
 
   /* icon font size */
+  --icon-fs-xl: 26px;
   --icon-fs-big: 24px;
   --icon-fs-med: 18px;
   --icon-fs-small: 13px;
@@ -49,11 +50,13 @@
 
 }
 
+/* deafult css */
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-decoration: none;
 }
 
@@ -61,7 +64,7 @@ body {
   background-color: var(--main-bg-clr);
 }
 
-input {
+input, select {
   border: none;
   outline: none;
   background: none;
@@ -87,15 +90,17 @@ button {
   cursor: pointer;
 }
 
-.app-wrapper, .addItems-wrapper {
+/* app start */
+
+.app-wrapper, .addItems-wrapper, .setting-wrapper, .createFolder-wrapper {
   width: var(--lap-width);
   height: 100vh;
   margin: auto;
-  position: relative;
   padding: var(--xl-pad);
+  position: relative;
 }
 
-/* Header css */
+/* Header start */
 
 .header-wrapper {
   width: var(--lap-width);
@@ -118,32 +123,33 @@ button {
   font-size: var(--icon-fs-big);
 }
 
-/* serach bar  */
+/* header end */
+
+/* serach bar start */
+.searchBar-wrapper {
+  margin-top: 80px;
+}
 
 .searchBar-wrapper p {
-  position: absolute;
-  top: 100px;
-  left: 25px;
   font-size: var(--big-fs);
+  margin: 0 0 20px 10px;
 }
 
 .search-group {
-  position: fixed;
-  top: 15px;
-  gap: 10px;
-  width: 25%;
+  width: 45%;
+  gap: 5px;
   padding: var(--small-pad);
-  background: var(--white-bg-clr);
+  background: #eee;
   border-radius: var(--brr-medi);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;  z-index: 10000;
 }
 
-/* home content */
+/* ṣearch bar end */
+
+/* home content start */
 
 .list-wrapper {
-  position: relative;
-  top: 200px;
-  left: 30px;
+  margin-top: 30px;
   flex-wrap: wrap;
   gap: 25px;
   padding-bottom: 100px;
@@ -162,23 +168,25 @@ button {
   box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;}
 
 .item-container .title {
-  font-size: var(--xl-fs);
-  font-weight: var(--fw-500);
+  font-size: var(--mediu-fs);
+  font-weight: var(--fw-400);
 }
 
 .item-container .desc {
-  font-weight: var(--fw-400);
-  font-size: var(--mediu-fs);
+  font-weight: var(--fw-300);
+  font-size: var(--small-fs);
   color: #808080;
 }
 .item-container .time {
   color: #a0a0a0;
   font-size: var(--xs-fs);
-  font-weight: var(--fw-400);
+  font-weight: var(--fw-200);
   letter-spacing: 0.2px;
 }
 
-/* footer css */
+/* home content end */
+
+/* footer start */
 
 .footer-wrapper {
   width: var(--lap-width);
@@ -216,7 +224,9 @@ button {
   font-size: var(--xl-fs);
 }
 
-/* add items0 */
+/* footer end  */
+
+/* add items start */
 
 .addItems-head {
   justify-content: space-between;
@@ -239,6 +249,8 @@ button {
   outline: none;
   border-radius: var(--brr-small);
   cursor: pointer;  
+  background-color: #eee;
+  font-size: var(--xs-fs);
 }
 
 .addItems-main {
@@ -253,21 +265,394 @@ button {
   font-size: var(--xl-fs);
   color: var(--primary-clr);
   font-weight: var(--fw-500);
-  margin-left: 10px;
 }
 
 .addItems-main .addItems-date {
   font-size: var(--xs-fs);
   letter-spacing: 0.3px;
-  color: var(--grey-small-clr);
+  color: #000;
   font-weight: var(--fw-400);
 }
 
 .addItems-main .textarea {
   background: var(--white-bg-clr);
   height: 300px;
+  padding: 15px;
   overflow: hidden;
 }
+
+/* add item end */
+
+/* setting start */
+
+.setting-wrapper .icon {
+  font-size: var(--big-fs);
+}
+
+.setting-wrapper .setting-headline {
+  font-size: var(--big-fs);
+  margin: 25px 0;
+  font-weight: 300;
+}
+
+.setting-service-headline {
+  font-size: var(--xs-fs);
+  margin: 25px 0 ;
+  color: var(--grey-small-clr);
+  letter-spacing: 0.3px;
+}
+
+.setting-service-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.setting-wrapper-2 {
+  width: 500px;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.setting-service-group {
+  justify-content: space-between;
+}
+
+.setting-service-group label {
+  font-size: 14px;
+  font-weight: var(--fw-500);
+}
+
+.setting-service-group select{
+  font-size: var(--xs-fs);
+  letter-spacing: 0.4px;
+  color: var(--grey-small-clr);
+  cursor: pointer;
+  font-weight: var(--fw-300);
+}
+/* setting end */
+
+/* create folder start*/
+
+.folder-wrapper-head {
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.todo-count-wrapper, .create-folder {
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: var(--container-pad);
+  background: var(--white-bg-clr);
+  border-radius: var(--brr-small);
+}
+
+.todo-count-wrapper .left .icon {
+  font-size: var(--icon-fs-med);
+  gap: 5px;
+}
+
+.createFolder-wrapper span {
+  font-size: var(--xs-fs);
+}
+
+.folder-wrapper-head span {
+  font-size: var(--small-fs);
+  font-weight: var(--fw-500);
+}
+
+.createFolder-wrapper .icon {
+  font-size: var(--icon-fs-big);
+}
+
+.create-folder {
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.create-folder .icon {
+  border-radius: var(--brr-cir);
+  background-color: var(--orange-bg-clr);
+  color: var(--white-clr);
+  font-size: var(--xl-fs);
+}
+
+/* create folder end */
+
+/* Item action */
+.itemAction-wrapper {
+ width: fit-content;
+ height: fit-content;
+ flex-direction: column;
+ gap: 20px;
+ position: absolute;
+ background: #11111179;
+ padding: var(--small-pad);
+ padding-bottom: 25px;
+ border-radius: var(--brr-small);
+}
+
+.item-action-header .icon {
+  position: relative;
+  top: 0;
+  right: -40px;
+  display: flex;
+  align-items: right;
+  color: var(--white-clr);
+}
+
+.item-action-header .icon-select-all {
+  display: none;
+}
+
+.item-action-footer {
+  flex-direction: column;
+  gap: 15px;
+  align-items: start;
+}
+
+.item-action-group {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  color: var(--white-clr);
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.item-action-group:hover {
+  color: #eaa448;
+}
+
+/* folder pop up */
+
+.folder-popup {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  width: 400px;
+  gap: 15px;
+  height: fit-content;
+  background-color: var(--white-bg-clr);
+  border-radius: var(--brr-small);
+  padding: 20px 0;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.folder-popup p {
+  font-size: var(--small-fs);
+  font-weight: var(--fw-550);
+}
+
+.folder-popup input {
+  background: #eee;
+  padding: 10px 20px;
+  border-radius: var(--brr-small);
+}
+
+.folder-popup .buttons {
+  gap: 20px;
+}
+
+.folder-popup .buttons button {
+  padding: 10px 15px;
+  width: 70px;
+  border-radius: var(--brr-small);
+  cursor: pointer;
+}
+
+.folder-popup .buttons .cancel {
+  background: #eee;
+}
+
+.folder-popup .buttons .ok {
+  background: #2987e6;
+  color: var(--white-clr);
+}
+
+
+  /* item action start */
+
+  /* .item-action-header {
+    width: var(--lap-width);
+    height: 70px;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    justify-content: end;
+    gap: 25px;
+    padding: var(--small-pad);
+    background: var(--white-bg-clr);
+    z-index: 10000;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  }
+
+  .item-action-header .icon, .icon-select-all {
+    font-size: var(--icon-fs-xl);
+    display: block;
+  }
+
+  .item-action-footer {
+    width: var(--lap-width);
+    height: 70px;
+    position: absolute;
+    justify-content: space-around;
+    background-color: var(--white-bg-clr);
+    bottom: 0;
+    margin: 0;
+    z-index: 10000;
+  }
+
+  .item-action-group {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .item-action-group .icon {
+    font-size: var(--icon-fs-big);
+  }
+
+  .item-action-group span {
+    font-size: var(--sma-fs);
+  } */
+
+/* @media quary start by mobile view */
+@media screen and (max-width: 520px) {
+
+ /* header */
+  .hide {
+    display: none;
+  }
+
+  .active {
+    margin-left: 50px;
+    font-weight: var(--fw-600);
+  }
+
+  .app-wrapper {
+    width: var(--full-width);
+    margin: 0;
+    position: relative;
+  }
+
+  .header-wrapper {
+    width: var(--full-width);
+    left: 0;
+  }
+
+  .icon-wrapper {
+    margin-right: 20px;
+  }
+
+  .icon-wrapper .icon {
+    font-size: var(--icon-fs-xl);
+  }
+
+  /*search bar  */
+  .searchBar-wrapper p {
+    font-size: var(--xxl-fs);
+  }
+
+  .search-group {
+    width: var(--full-width);
+  }
+
+  .search-group .icon {
+    font-size: var(--big-fs);
+  }
+
+  /* main item container */
+  .item-container {
+    width: var(--full-width);
+    gap: 10px;
+    height: 100px;
+    padding: var(--small-pad);
+    border-radius: 15px;
+    box-shadow: none;
+  }
+
+  /* footer */
+  .footer-wrapper {
+    width: var(--full-width);
+    left: 0;
+    height: 70px;
+  }
+
+  .footer-wrapper .add-icon {
+    right: 8%;
+    bottom: 90px;
+  }
+
+  .footer-item-group .icon {
+    font-size: var(--icon-fs-med);
+  }
+
+  .footer-item-group p {
+    font-size: 14px;
+  }
+
+  /* addItems */
+  .addItems-wrapper {
+    width: var(--full-width);
+  }
+
+  .addItems-head .icon {
+    font-size: var(--icon-fs-xl);
+  }
+
+  .addItems-head .right-side {
+    gap: 35px;
+  }
+
+  .addItems-main {
+    padding: 0 10px;
+  }
+
+  .addItems-main input {
+    font-size: 22px;
+  }
+
+  .addItems-main .addItems-date {
+    font-size: 13px;
+  }
+
+  .addItems-main .textarea {
+    width: var(--full-width);
+    font-size: var(--mediu-fs);
+    background: none;
+    border: none;
+    outline: none;
+    color: #000;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  /* setting */
+  .setting-wrapper {
+    width: var(--full-width);
+  }
+
+  .setting-wrapper-2 {
+    width: var(--full-width);
+  }
+
+  /* create folder */
+  .createFolder-wrapper {
+    width: var(--full-width);
+  }
+
+  /* folder start */
+  .folder-popup {
+    bottom: 0;
+  }
+
+
+} 
 
 
 
