@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 function Header() {
   const [scrollPosition, setSrollPosition] = useState(0);
-  const [showGoTop, setshowGoTop] = useState("hide");
+  let setshowGoTop = 'hide'
 
   const handleVisibleButton = () => {
     const position = window.pageYOffset;

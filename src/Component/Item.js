@@ -6,7 +6,7 @@ import ItemAction from './ItemAction';
 function Item() {
     const { todos, setEditTodo } = useContext(TodoContext);
     const [deletedId, setDeletedId] = useState();
-    const [itemActionMenu, setItemActionMenu] = useState({});
+    const [itemActionMenu, setItemActionMenu] = useState(false);
     const navigate = useNavigate();
 
     return (
@@ -15,10 +15,7 @@ function Item() {
             {todos.map((todo) => (
                 <div className='item-container' onContextMenu={(e) => {
                     e.preventDefault()
-                    setItemActionMenu({
-                        left: e.clientX + 6,
-                        top: e.clientY + 6
-                    })
+                    setItemActionMenu(true)
                     setDeletedId(todo.id)
                 }} onClick={() => {
                     navigate('/addItems')

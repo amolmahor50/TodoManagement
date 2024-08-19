@@ -11,20 +11,17 @@ import { TodoContext } from "../Store/TodoContext";
 function ItemAction({ action }) {
     const {deletedTodo} = useContext(TodoContext);
 
-
-    if (!action.itemActionMenu.left) {
-        return
-    }
+    if(!action.itemActionMenu) return
 
     const handleDeleteItem = () => {
         deletedTodo(action.deletedId);
-        action.setItemActionMenu({});
+        action.setItemActionMenu(false);
     }
 
     return (
-        <div className="itemAction-wrapper d-flex" style={{...action.itemActionMenu}}>
+        <div className="itemAction-wrapper d-flex">
             <div className="item-action-header d-flex">
-                <IoMdClose className="icon" onClick={() => action.setItemActionMenu({})} />
+                <IoMdClose className="icon" onClick={() => action.setItemActionMenu(false)} />
                 <VscChecklist className="icon-select-all" />
             </div>
             <div className="item-action-footer d-flex">
