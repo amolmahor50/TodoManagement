@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root {
+.light-theme {
 
   /* width */
   --lap-width: 1150px;
@@ -19,17 +19,69 @@
   --white-clr: #ffffff;
 
   /* font size */
-  --xs-fs: 12px;
-  --mediu-fs: 16px;
-  --xl-fs: 18px;
-  --big-fs: 24px;
-  --xxl-fs: 26px;
+  --xs-fs: 10px;
+  --small-fs: 12px;
+  --mediu-fs: 14px;
+  --xl-fs: 16px;
+  --big-fs: 22px;
+  --xxl-fs: 24px;
 
   /* icon font size */
-  --icon-fs-xl: 26px;
-  --icon-fs-big: 24px;
-  --icon-fs-med: 18px;
-  --icon-fs-small: 13px;
+  --icon-fs-xl: 24px;
+  --icon-fs-big: 22px;
+  --icon-fs-med: 16px;
+  --icon-fs-small: 11px;
+
+  /* font weight */
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-550: 550;
+  --fw-600: 600;
+
+  /* padding */
+  --container-pad: 15px;
+  --xl-pad: 25px;
+  --small-pad: 10px 20px;
+
+  /* border radius  */
+  --brr-small: 10px;
+  --brr-medi: 30px;
+  --brr-cir: 50%;
+
+}
+
+.dark-theme {
+
+  /* width */
+  --lap-width: 1150px;
+  --full-width: 100%;
+
+  /* bgcolor */
+  --main-bg-clr: #000000;
+  --primary-bg-clr: #323232;
+  --secondary-bg-clr: #e8e8e8;
+  --white-bg-clr: #323232;
+  --orange-bg-clr: #FF8C00;
+
+  /* font color */
+  --grey-small-clr: #272626f1;
+  --primary-clr: #ffffff;
+  --white-clr: #111111;
+
+  /* font size */
+  --xs-fs: 10px;
+  --small-fs: 12px;
+  --mediu-fs: 14px;
+  --xl-fs: 16px;
+  --big-fs: 22px;
+  --xxl-fs: 24px;
+
+  /* icon font size */
+  --icon-fs-xl: 24px;
+  --icon-fs-big: 22px;
+  --icon-fs-med: 16px;
+  --icon-fs-small: 11px;
 
   /* font weight */
   --fw-300: 300;
@@ -118,6 +170,10 @@ button {
   z-index: 1000;
 }
 
+.active {
+  color: var(--primary-clr);
+}
+
 .icon-wrapper {
   gap: 35px;
   cursor: pointer;
@@ -137,16 +193,21 @@ button {
 .searchBar-wrapper p {
   font-size: var(--big-fs);
   margin: 0 0 20px 10px;
+  color: var(--primary-clr);
 }
 
 .search-group {
   width: 45%;
   gap: 5px;
   padding: var(--small-pad);
-  background: #eee;
+  background: var(--primary-bg-clr);
   border-radius: var(--brr-medi);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   z-index: 10000;
+}
+
+.search-group .icon {
+  color: var(--primary-clr);
 }
 
 .searchFilter-wrapper {
@@ -159,10 +220,10 @@ button {
 /* home content start */
 
 .list-wrapper {
-  margin-top: 30px;
+  margin-top: 20px;
   gap: 25px;
   padding-bottom: 100px;
-
+  flex-wrap: wrap;
 }
 
 .item-container {
@@ -181,12 +242,15 @@ button {
 .item-container .title {
   font-size: var(--mediu-fs);
   font-weight: var(--fw-400);
+  color: var(--primary-clr);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .item-container .desc {
   font-weight: var(--fw-300);
   font-size: var(--small-fs);
-  color: #808080;
+  color: var(--primary-clr);
 }
 
 .item-container .time {
@@ -206,10 +270,11 @@ button {
   position: fixed;
   bottom: 0;
   margin: auto;
+  z-index: 1000;
   padding: var(--container-pad);
   justify-content: space-around;
-  border-top: 1px solid #ccc;
-  background: var(--secondary-bg-clr);
+  border-top: 1px solid var(--primary-bg-clr);
+  background: var(--main-bg-clr);
 }
 
 .footer-item-group {
@@ -220,6 +285,7 @@ button {
 
 .footer-item-group p {
   font-size: var(--xs-fs);
+  font-weight: var(--fw-500);
 }
 
 .footer-wrapper .add-icon {
@@ -232,7 +298,7 @@ button {
 }
 
 .footer-wrapper .add-icon .icon {
-  color: var(--white-clr);
+  color: var(--primary-clr);
   font-size: var(--xl-fs);
 }
 
@@ -251,6 +317,7 @@ button {
 
 .addItems-head .icon {
   font-size: var(--icon-fs-big);
+  color: var(--primary-clr);
 }
 
 .addItems-wrapper .folder-content {
@@ -261,8 +328,9 @@ button {
   outline: none;
   border-radius: var(--brr-small);
   cursor: pointer;
-  background-color: #eee;
+  background-color: var(--primary-bg-clr);
   font-size: var(--xs-fs);
+  color: var(--primary-clr);
 }
 
 .addItems-main {
@@ -282,15 +350,16 @@ button {
 .addItems-main .addItems-date {
   font-size: var(--xs-fs);
   letter-spacing: 0.3px;
-  color: #000;
+  color: var(--primary-clr);
   font-weight: var(--fw-400);
 }
 
 .addItems-main .textarea {
-  background: var(--white-bg-clr);
+  color: var(--primary-clr);
   height: 300px;
   padding: 15px;
   overflow: hidden;
+  background-color: var(--primary-bg-clr);
 }
 
 /* add item end */
@@ -299,12 +368,14 @@ button {
 
 .setting-wrapper .icon {
   font-size: var(--big-fs);
+  color: var(--primary-clr);
 }
 
 .setting-wrapper .setting-headline {
   font-size: var(--big-fs);
   margin: 25px 0;
   font-weight: 300;
+  color: var(--primary-clr);
 }
 
 .setting-service-headline {
@@ -312,6 +383,7 @@ button {
   margin: 25px 0;
   color: var(--grey-small-clr);
   letter-spacing: 0.3px;
+  color: var(--primary-clr);
 }
 
 .setting-service-wrapper {
@@ -333,12 +405,14 @@ button {
 .setting-service-group label {
   font-size: 14px;
   font-weight: var(--fw-500);
+  color: var(--primary-clr);
 }
 
 .setting-service-group select {
+  background-color: var(--white-bg-clr);
   font-size: var(--xs-fs);
   letter-spacing: 0.4px;
-  color: var(--grey-small-clr);
+  color: var(--primary-clr);
   cursor: pointer;
   font-weight: var(--fw-300);
 }
@@ -364,19 +438,23 @@ button {
 .todo-count-wrapper .left .icon {
   font-size: var(--icon-fs-med);
   gap: 5px;
+  color: var(--orange-bg-clr);
 }
 
 .createFolder-wrapper span {
   font-size: var(--xs-fs);
+  color: var(--primary-clr);
 }
 
 .folder-wrapper-head span {
   font-size: var(--small-fs);
   font-weight: var(--fw-500);
+  color: var(--primary-clr);
 }
 
 .createFolder-wrapper .icon {
   font-size: var(--icon-fs-big);
+  color: var(--primary-clr);
 }
 
 .create-folder {
@@ -389,7 +467,7 @@ button {
 .create-folder .icon {
   border-radius: var(--brr-cir);
   background-color: var(--orange-bg-clr);
-  color: var(--white-clr);
+  color: var(--primary-clr);
   font-size: var(--xl-fs);
 }
 
@@ -399,11 +477,11 @@ button {
 
 .folder-popup {
   position: absolute;
-  bottom: 30px;
+  bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
-  width: 400px;
+  width: 350px;
   gap: 15px;
   height: fit-content;
   background-color: var(--white-bg-clr);
@@ -416,10 +494,11 @@ button {
 .folder-popup p {
   font-size: var(--small-fs);
   font-weight: var(--fw-550);
+  color: var(--primary-clr);
 }
 
 .folder-popup input {
-  background: #eee;
+  background: var(--secondary-bg-clr);
   padding: 10px 20px;
   border-radius: var(--brr-small);
 }
@@ -441,16 +520,22 @@ button {
 
 .folder-popup .buttons .ok {
   background: #2987e6;
-  color: var(--white-clr);
+  color: var(--primary-clr);
 }
 
 
 /* item action start */
+.item-action-wrapper {
+  width: var(--lap-width);
+  height: 100vh;
+  position: relative;
+  overflow-y: hidden;
+}
 
 .item-action-header {
   width: var(--lap-width);
   height: 70px;
-  position: absolute;
+  position: fixed;
   top: 0;
   margin: 0;
   justify-content: end;
@@ -465,14 +550,15 @@ button {
 .icon-select-all {
   font-size: var(--icon-fs-xl);
   display: block;
+  color: var(--primary-clr);
 }
 
 .item-action-footer {
   width: var(--lap-width);
   height: 70px;
-  position: absolute;
+  position: fixed;
   justify-content: space-around;
-  background-color: npm s;
+  background-color: var(--white-bg-clr);
   bottom: 0;
   margin: 0;
   z-index: 10000;
@@ -486,10 +572,13 @@ button {
 
 .item-action-group .icon {
   font-size: var(--icon-fs-big);
+  color: var(--primary-clr);
 }
 
 .item-action-group span {
-  font-size: var(--sma-fs);
+  font-size: var(--small-fs);
+  font-weight: 200;
+  color: var(--primary-clr);
 }
 
 /* @media quary start by mobile view */
@@ -502,7 +591,8 @@ button {
 
   .active {
     margin-left: 50px;
-    font-weight: var(--fw-600);
+    font-weight: var(--fw-400);
+    letter-spacing: 1px;
   }
 
   .app-wrapper {
@@ -545,9 +635,9 @@ button {
   /* main item container */
   .item-container {
     width: var(--full-width);
-    gap: 8px;
-    margin: 15px 0;
-    height: 100px;
+    gap: 2px;
+    margin: 6px 0;
+    height: fit-content;
     padding: var(--small-pad);
     border-radius: 15px;
     box-shadow: none;
@@ -558,6 +648,7 @@ button {
     width: var(--full-width);
     left: 0;
     height: 70px;
+    justify-content: space-around;
   }
 
   /* todo */
@@ -567,15 +658,13 @@ button {
     bottom: 90px;
   }
 
-  .footer-item-group {
-  }
-
   .footer-item-group .icon {
     font-size: var(--icon-fs-med);
   }
 
   .footer-item-group p {
     font-size: 14px;
+    font-weight: 400;
   }
 
   /* addItems */
@@ -609,7 +698,7 @@ button {
     background: none;
     border: none;
     outline: none;
-    color: #000;
+    color: var(--primary-clr);
     padding: 0;
     margin-top: 20px;
   }
@@ -631,6 +720,8 @@ button {
   /* folder start */
   .folder-popup {
     bottom: 0;
+    width: fit-content;
+    padding: var(--container-pad);
   }
 
   .item-action-header,

@@ -5,31 +5,28 @@ import SearchBar from "./SearchBar";
 import { useEffect, useState } from "react";
 
 function Header() {
-  const [scrollPosition, setSrollPosition] = useState(0);
-  let setshowGoTop = 'hide'
+  const [scrollY, setScrollY] = useState(0);
 
-  const handleVisibleButton = () => {
-    const position = window.pageYOffset;
-
-    if(position > 60){
-        setSrollPosition(position);
-        setshowGoTop("active");
-    }
-    else if (position < 60) {
-      setSrollPosition(position);
-      setshowGoTop("hide");
-    } 
-  };
+  function logit() {
+    setScrollY(window.pageYOffset);
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleVisibleButton);
-  },[]);
+    function watchScroll() {
+      window.addEventListener("scroll", logit);
+    }
+    watchScroll();
+    // Remove listener (like componentWillUnmount)
+    return () => {
+      window.removeEventListener("scroll", logit);
+    };
+  }, []);
 
   return (
  <>
      <div className="header-wrapper d-flex">
       <div></div>
-      <div className={scrollPosition < 70 ? "hide" : "active"}>Notes</div>
+      <div className={scrollY > 65 ? "active" : "hide"}>Notes</div>
       <div className="icon-wrapper d-flex">
         <NavLink to='folder' className='link'>
           <BsFolder2 className="icon" />

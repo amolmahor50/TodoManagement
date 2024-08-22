@@ -3,11 +3,13 @@ import { MdDeleteOutline } from "react-icons/md";
 import { IoMdCheckmark } from "react-icons/io";
 import { IoAddOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CreateFolderPopUp from "./CreateFolderPopUp";
+import { TodoContext } from "../Store/TodoContext";
 
 function CreateFolder() {
   const [openFolder, setOpenFolder] = useState(false);
+  const {todos} = useContext(TodoContext);
 
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ function CreateFolder() {
               <IoMdCheckmark className="icon"/>
               <span>All</span>
             </div>
-            <span className="right">8</span>
+            <span className="right">{todos.length}</span>
         </div>
         <div className="create-folder d-flex" onClick={() => setOpenFolder(true)}>
           <IoAddOutline className="icon"/>

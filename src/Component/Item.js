@@ -21,7 +21,7 @@ function Item() {
                     navigate('/addItems')
                     setEditTodo(todo)
                 }} key={todo.id}>
-                    <p className='title'>{todo.title}</p>
+                    <p className='title'>{(todo.title).length}</p>
                     <p className='desc'>{todo.description}</p>
                     <p className="time">{todo.timestamp}</p>
                 </div>
