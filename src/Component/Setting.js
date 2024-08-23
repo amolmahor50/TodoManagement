@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoArrowBackSharp } from "react-icons/io5"
 import { useNavigate } from "react-router-dom"
+import { TodoContext } from "../Store/TodoContext";
 
 const getThemes = () => {
     const theme = localStorage.getItem("theme");
@@ -14,6 +15,7 @@ const getThemes = () => {
 }
 
 function Setting() {
+    const {showAlert} = useContext(TodoContext);
     const navigate = useNavigate();
     const [Themes, setThemes] = useState(getThemes)
 
@@ -21,9 +23,11 @@ function Setting() {
         const targetTheme = e.target.value;
         if (targetTheme === "light") {
             setThemes("light-theme");
+            showAlert("Light theme are enabled", "Success");
         }
         else if (targetTheme === "dark") {
             setThemes("dark-theme");
+            showAlert("Dark theme are enabled", "Success");
         }
     }
 

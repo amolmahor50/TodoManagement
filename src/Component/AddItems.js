@@ -12,7 +12,7 @@ function AddItems() {
     const [description, setDescription] = useState('');
     const [timestamp, setTimestamp] = useState((new Date().toLocaleString()));
     const navigate = useNavigate();
-    const { addTodo, editTodo, updateTodo } = useContext(TodoContext);
+    const { showAlert, addTodo, editTodo, updateTodo } = useContext(TodoContext);
 
     useEffect(() => {
         if (editTodo) {
@@ -32,11 +32,20 @@ function AddItems() {
         }
         if (editTodo) {
             updateTodo({ ...editTodo, ...newTodo });
+            showAlert("Upadate Your task Today", "Success");
         }
         else {
             addTodo({ ...newTodo, id: Date.now() });
+            showAlert("Add Your task Today", "Success");
         }
         navigate('/');
+    }
+
+    const handleDivertCreateFolder = (e) => {
+        console.log(e.target.value)
+        if(e.target.value === "newFolder"){
+            navigate('/folder');
+        }
     }
 
     return (
@@ -51,9 +60,9 @@ function AddItems() {
                     <button disabled={(title && description).length === 0} type="submit" onClick={handleSumbit}><MdOutlineDone className="icon" /></button>
                 </div>
             </div>
-            <select name="" id="" className="folder-content">
+            <select name="" id="" className="folder-content" onChange={handleDivertCreateFolder}>
                 <option >Uncategorised</option>
-                <option >New Folder</option>
+                <option value='newFolder'>New Folder</option>
             </select>
             <div className="addItems-main">
                 <input value={title} type="text" name="title" id="" placeholder="Title..." onChange={(e) => setTitle(e.target.value)} />

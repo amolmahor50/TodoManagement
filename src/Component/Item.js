@@ -5,23 +5,23 @@ import ItemAction from './ItemAction';
 
 function Item() {
     const { todos, setEditTodo } = useContext(TodoContext);
-    const [deletedId, setDeletedId] = useState();
+    const [idActionperform, setidActionperform] = useState();
     const [itemActionMenu, setItemActionMenu] = useState(false);
     const navigate = useNavigate();
 
     return (
         <>
-            <ItemAction action={{ itemActionMenu, setItemActionMenu ,deletedId}} />
+            <ItemAction action={{ itemActionMenu, setItemActionMenu ,idActionperform}} />
             {todos.map((todo) => (
                 <div className='item-container' onContextMenu={(e) => {
                     e.preventDefault()
                     setItemActionMenu(true)
-                    setDeletedId(todo.id)
+                    setidActionperform(todo.id)
                 }} onClick={() => {
                     navigate('/addItems')
                     setEditTodo(todo)
                 }} key={todo.id}>
-                    <p className='title'>{(todo.title).length}</p>
+                    <p className='title'>{todo.title}</p>
                     <p className='desc'>{todo.description}</p>
                     <p className="time">{todo.timestamp}</p>
                 </div>

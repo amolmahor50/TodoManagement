@@ -9,12 +9,20 @@ import { TodoContext } from "../Store/TodoContext";
 
 
 function ItemAction({ action }) {
-    const {deletedTodo} = useContext(TodoContext);
+    const {deletedTodo, showAlert, pinSelect} = useContext(TodoContext);
 
     if(!action.itemActionMenu) return
 
+    // deleted your task
     const handleDeleteItem = () => {
-        deletedTodo(action.deletedId);
+        deletedTodo(action.idActionperform);
+        action.setItemActionMenu(false);
+        showAlert('Your Note are deleted', 'Success');
+    }
+
+    // pin your items
+    const handlePinSelect = () => {
+        pinSelect(action.idActionperform);
         action.setItemActionMenu(false);
     }
 
@@ -29,7 +37,7 @@ function ItemAction({ action }) {
                     <GoUnlock className="icon"/>
                     <span>Hide</span>
                 </div>
-                <div className="item-action-group d-flex">
+                <div className="item-action-group d-flex" onClick={handlePinSelect}>
                     <TiPinOutline className="icon"/>
                     <span>Pin</span>
                 </div>

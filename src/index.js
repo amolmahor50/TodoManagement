@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <AddItems />
   },
   {
-    path: 'folder',
+    path: '/folder',
     element: <CreateFolder/>
   },
   {
