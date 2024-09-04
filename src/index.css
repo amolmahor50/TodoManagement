@@ -233,10 +233,11 @@ button {
 
 .item-container {
   width: 350px;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: left;
+  height: 150px;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: var(--white-bg-clr);
   border-radius: var(--brr-medi);
   padding: var(--xl-pad);
@@ -244,17 +245,21 @@ button {
   box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 }
 
+.item-contain {
+  flex-direction: column;
+  gap: 5px;
+  align-items: start;
+}
+
 .item-container .title {
   font-size: var(--mediu-fs);
   font-weight: var(--fw-400);
   color: var(--primary-clr);
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .item-container .desc {
   font-weight: var(--fw-300);
-  font-size: var(--small-fs);
+  font-size: 12px;
   color: var(--primary-clr);
 }
 
@@ -361,8 +366,8 @@ button {
 
 .addItems-main .textarea {
   color: var(--primary-clr);
+  width: var(--lap-width);
   height: 300px;
-  padding: 15px;
   overflow: hidden;
   background-color: var(--primary-bg-clr);
 }
@@ -533,8 +538,10 @@ button {
 .item-action-wrapper {
   width: var(--lap-width);
   height: 100vh;
-  position: relative;
-  overflow-y: hidden;
+  margin: auto;
+  left: 50px;
+  position: fixed;
+  overflow: hidden;
 }
 
 .item-action-header {
@@ -583,7 +590,7 @@ button {
 
 .item-action-group span {
   font-size: var(--small-fs);
-  font-weight: 200;
+  font-weight: 400;
   color: var(--primary-clr);
 }
 
@@ -665,12 +672,20 @@ button {
   /* main item container */
   .item-container {
     width: var(--full-width);
-    gap: 2px;
+    gap: 8px;
     margin: 6px 0;
-    height: fit-content;
+    height: 90px;
     padding: var(--small-pad);
     border-radius: 15px;
     box-shadow: none;
+  }
+
+  .item-container .item-contain, .item-container .title, .item-container .desc {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
   }
 
   /* footer */
@@ -724,13 +739,14 @@ button {
 
   .addItems-main .textarea {
     width: var(--full-width);
+    height: 250px;
     font-size: var(--mediu-fs);
     background: none;
     border: none;
     outline: none;
     color: var(--primary-clr);
     padding: 0;
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   /* setting */

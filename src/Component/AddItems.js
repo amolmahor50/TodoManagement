@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import { TodoContext } from "../Store/TodoContext";
+import ReactQuill from "react-quill";
+import EditorToolbar, { modules, formats } from "./EditorToolbar";
 
 function AddItems() {
     const [title, setTitle] = useState('');
@@ -43,7 +45,7 @@ function AddItems() {
 
     const handleDivertCreateFolder = (e) => {
         console.log(e.target.value)
-        if(e.target.value === "newFolder"){
+        if (e.target.value === "newFolder") {
             navigate('/folder');
         }
     }
@@ -67,7 +69,16 @@ function AddItems() {
             <div className="addItems-main">
                 <input value={title} type="text" name="title" id="" placeholder="Title..." onChange={(e) => setTitle(e.target.value)} />
                 <div className="addItems-date"> {timestamp} | {description.split(" ").filter((element) => { return element.length !== 0 }).length} word and {description.length}/5000 Character</div>
-                <textarea name="description" value={description} onChange={(e) => setDescription(e.target.value)} className="textarea" placeholder="Start writing...."></textarea>
+                <EditorToolbar />
+                <ReactQuill
+                    theme="snow"
+                    value={description}
+                    onChange={(e) => setDescription(e)}
+                    placeholder={"Write something awesome..."}
+                    modules={modules}
+                    formats={formats}
+                    className="textarea"
+                />
             </div>
         </div>
     )

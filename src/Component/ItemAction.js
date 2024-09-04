@@ -9,7 +9,7 @@ import { TodoContext } from "../Store/TodoContext";
 
 
 function ItemAction({ action }) {
-    const {deletedTodo, showAlert, pinSelect} = useContext(TodoContext);
+    const {deletedTodo, showAlert, pinSelect, deleteSelectedTodos} = useContext(TodoContext);
 
     if(!action.itemActionMenu) return
 
@@ -30,7 +30,7 @@ function ItemAction({ action }) {
         <div className="itemAction-wrapper d-flex">
             <div className="item-action-header d-flex">
                 <IoMdClose className="icon" onClick={() => action.setItemActionMenu(false)} />
-                <VscChecklist className="icon-select-all" />
+                <VscChecklist className="icon-select-all" onClick={deleteSelectedTodos}/>
             </div>
             <div className="item-action-footer d-flex">
                 <div className="item-action-group d-flex">

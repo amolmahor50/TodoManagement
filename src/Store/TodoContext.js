@@ -6,6 +6,7 @@ export const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
     const [todos, setTodos] = useState([]);
+    const [selectedTodos, setSelectedTodos] = useState([]);
     const [editTodo, setEditTodo] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [alert, setAlert] = useState(null);
@@ -86,6 +87,28 @@ export const TodoProvider = ({ children }) => {
 
     }
 
+    const toggleTodoSelection = (id) => {
+        setSelectedTodos((prevSelected) =>
+            prevSelected.includes(id)
+                ? prevSelected.filter((todoId) => todoId !== id)
+                : [...prevSelected, id]
+        );
+    };
+
+    const deleteSelectedTodos = async () => {
+        try {
+            const deleteRequests = selectedTodos.map((id) =>
+                axios.delete(`http://localhost:8000/todos/${id}`)
+            );
+
+            await Promise.all(deleteRequests);
+            setTodos((prevTodos) => prevTodos.filter((todo) => !selectedTodos.includes(todo.id)));
+            setSelectedTodos([]); // Clear selection after deletion
+        } catch (error) {
+            console.error('Error deleting todos:', error);
+        }
+    };
+
     // pin your items 
     const pinSelect = async (id) => {
         const pinItem = todos.filter(todo => (todo.id === id));
@@ -93,7 +116,7 @@ export const TodoProvider = ({ children }) => {
 
         await axios.put(url, newItems)
         .then((response) => {
-            setTodos(response.data);
+            console.log(response);
         })
         .catch((error) => {
             showAlert("You can't pin todo" , "Network error");
@@ -105,7 +128,7 @@ export const TodoProvider = ({ children }) => {
     }, [searchTerm]);
 
     return (
-        <TodoContext.Provider value={{ todos, editTodo, setEditTodo, addTodo, updateTodo, deletedTodo, setSearchTerm, handleChange, showAlert, alert, pinSelect }}>
+        <TodoContext.Provider value={{ todos, editTodo, setEditTodo, addTodo, updateTodo, deletedTodo, setSearchTerm, handleChange, showAlert, alert, pinSelect, toggleTodoSelection, selectedTodos, deleteSelectedTodos }}>
             {children}
         </TodoContext.Provider>
     )
